@@ -1,6 +1,38 @@
+@import '../../../styles/colors';
+
 :host {
+    --bottom-offset: 210px;
     display: flex;
-    height: 100%;
-    box-sizing: border-box;
+    height: calc(100% - var(--bottom-offset));
     background: #121213;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game {
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-grow: 1;
+}
+
+.guess-container {
+    width: 350px;
+    height: 420px;
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    padding: .75rem;
+}
+
+.guess {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: .25rem;
+}
+
+.keyboard {
+    height: 200px;
 }

@@ -1,9 +1,11 @@
+@import '../../../styles/_fonts.scss';
+
 :host {
-    font-family: 'Roboto Slab', serif;
+    font-family: var(--font-family-serif);
 }
 
 .top-nav {
-    border-bottom: 2px solid #91818A;
+    border-bottom: 1px solid #91818A;
     color: #ffffff;
     padding: 1rem;
     font-size: 2rem;
