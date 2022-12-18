@@ -1,3 +1,6 @@
+@import '../styles/fonts';
+@import '../styles/colors';
+
 :host {
   display: flex;
   flex-direction: column;
@@ -7,4 +10,16 @@
   left: 0;
   right: 0;
   background: #121213;
+}
+
+.footer {
+  position: absolute;
+  bottom: .25rem;
+}
+
+.footer,
+.footer a {
+  text-align: center;
+  // text-decoration: none;
+  color: var(--color-border);
 }

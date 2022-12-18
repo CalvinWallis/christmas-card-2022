@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    max-width: var(--game-max-width);
 }
 
 .guess-container {
@@ -31,8 +32,4 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: .25rem;
-}
-
-.keyboard {
-    height: 200px;
 }

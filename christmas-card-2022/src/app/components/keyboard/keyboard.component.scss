@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+
+:host {
+  height: 200px;
+  width: 100%;
+  max-width: $game-max-width;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  gap: .375rem;
+  margin: 0 auto .5rem auto;
+}
+
+.spacer {
+  flex: .5;
+}
