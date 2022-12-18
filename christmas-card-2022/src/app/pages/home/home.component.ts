@@ -11,4 +11,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  keyPress(value: string | undefined){
+    console.log(value);
+    //TODO: Game logic here
+  }
 }

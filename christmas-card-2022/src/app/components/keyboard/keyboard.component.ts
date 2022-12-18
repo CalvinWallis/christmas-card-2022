@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-keyboard',
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.scss']
 })
-export class KeyboardComponent implements OnInit {
+export class KeyboardComponent {
 
-  constructor() { }
+  @HostListener('document:keydown', ['$event'])
+  handleKeydownEvent(event: KeyboardEvent){
+    this.keyPress(event.key);
+  }
 
-  ngOnInit(): void {
+  @Output() keyPressed: EventEmitter<string> = new EventEmitter<string>();
+
+  keyPress(value: string | undefined): void {
+    if(value){
+      this.keyPressed.emit(value);
+    }
   }
 
 }

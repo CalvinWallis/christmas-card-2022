@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-keyboard-key',
@@ -15,6 +15,11 @@ export class KeyboardKeyComponent implements OnInit {
   @Input() clear: boolean = false;
   @HostBinding('class.clear') get isClear() {
     return this.clear;
+  }
+
+  @HostListener('click', ['$event'])
+  onClick() {
+    this.keyPress(this.keyName);
   }
 
   @Output() keyPressed: EventEmitter<string> = new EventEmitter<string>();
