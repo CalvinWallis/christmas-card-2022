@@ -1,11 +1,19 @@
 @import '../../../styles/colors';
+@import '../../../styles/fonts';
 
 :host {
     display: inline-flex;
 }
 
 .square {
+    align-items: center;
     border: 2px solid var(--color-border);
     border-radius: 2px;
+    color: var(--color-font-primary);
+    display: inline-flex;
+    font-family: var(--font-family-sans-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    justify-content: center;
     width: 100%;
 }

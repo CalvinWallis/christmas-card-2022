@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { KeyboardKeyComponent } from './components/keyboard-key/keyboard-key.component';
+import { LetterRowComponent } from './components/letter-row/letter-row.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { KeyboardKeyComponent } from './components/keyboard-key/keyboard-key.com
     HomeComponent,
     TopNavComponent,
     KeyboardComponent,
-    KeyboardKeyComponent
+    KeyboardKeyComponent,
+    LetterRowComponent
   ],
   imports: [
     BrowserModule,
