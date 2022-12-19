@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  guessNumber: number = 0;
+  currentGuess: string = "";
+
+  constructor(
+    private game: GameService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  keyPress(value: string | undefined){
-    console.log(value);
+  keyPress(key: string | undefined){
     //TODO: Game logic here
+    if(this.game.isValidLetter(key!)){
+      this.game.addLetterToWord(key!);
+    }
+    else if (key?.toLowerCase() === 'backspace'){
+      this.game.removeLetterFromWord();
+    }
+    else if(key?.toLowerCase() === 'enter'){
+      console.log(this.game.submitGuess());
+    }
+    this.currentGuess = this.game.guessedWord$.getValue();
+
   }
 }
