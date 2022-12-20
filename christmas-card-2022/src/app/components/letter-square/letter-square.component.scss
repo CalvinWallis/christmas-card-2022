@@ -17,3 +17,15 @@
     justify-content: center;
     width: 100%;
 }
+
+.exists {
+    background: var(--color-game-exists);
+}
+
+.correct {
+    background: var(--color-game-correct);
+}
+
+.incorrect {
+    background: var(--color-game-incorrect);
+}
