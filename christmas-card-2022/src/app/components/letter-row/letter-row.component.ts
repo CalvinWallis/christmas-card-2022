@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-letter-row',
@@ -8,14 +9,18 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LetterRowComponent implements OnInit {
   #guess?: string;
   @Input() set guess(value: string | undefined){
-    this.#guess = value;
+    if(this.rowNumber === this.game.currentRow$.getValue()){
+      this.#guess = value;
+    }
   } 
 
   get guess(): string {
     return this.#guess as string;
   }
 
-  constructor() { }
+  @Input() rowNumber: number = 0;
+
+  constructor(private game: GameService) { }
 
   ngOnInit(): void {
   }
