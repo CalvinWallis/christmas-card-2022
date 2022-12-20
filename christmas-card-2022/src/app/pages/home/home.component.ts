@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
   }
 
   keyPress(key: string | undefined){
-    //TODO: Game logic here
     const guessStarted = this.game.guessedWord$.getValue().length > 0;
     if (key?.toLowerCase() === 'backspace'){
       if(guessStarted){

@@ -45,6 +45,7 @@
 }
 
 .button {
+    align-items: center;
     background: var(--color-game-correct);
     border: 2px solid var(--color-game-correct);
     border-radius: 4px;
@@ -74,4 +75,12 @@
     height: 1rem;
     width: 1rem;
 
+}
+
+.skip {
+    color: var(--color-border);
+}
+
+.skip a {
+    color: var(--color-border);
 }
