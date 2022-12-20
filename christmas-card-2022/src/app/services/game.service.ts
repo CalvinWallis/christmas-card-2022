@@ -5,10 +5,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class GameService {
-  #wordLength = 5;
-  #correctWord = 'chief';
+  #wordLength: number = 5;
+  #answer: string = 'chief';
 
+  currentRow$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   guessedWord$: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  guessedWordList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   
   constructor() { }
 
@@ -32,17 +34,32 @@ export class GameService {
   }
 
   submitGuess(): boolean {
+    const currentRow: number = this.currentRow$.getValue();
     const currentWord: string = this.guessedWord$.getValue();
-    if(currentWord.toLowerCase() === this.#correctWord){
+    const guessedWords: string[] = this.guessedWordList$.getValue();
+
+    this.guessedWordList$.next([...guessedWords, currentWord]);
+
+    if(currentWord.toLowerCase() === this.#answer){
       return true;
     }
+
+    this.guessedWord$.next('');
+    this.currentRow$.next(currentRow + 1);
     return false;
   }
 
   isValidLetter(key: string): boolean {
-    const isLetter = (key >= 'a' && key <= 'z');
-    return isLetter;
+    if(key.length === 1){
+      const isLetter = (key >= 'a' && key <= 'z');
+      return isLetter;
+    }
+    return false;
+    
   }
 
+  getAnswer(): string {
+    return this.#answer;
+  }
   
 }
