@@ -9,12 +9,14 @@ import { GameService } from 'src/app/services/game.service';
 export class HomeComponent implements OnInit {
   guessRow: number = 0;
   currentGuess: string = "";
+  gameComplete: boolean = false;
 
   constructor(
     private game: GameService
   ) { }
 
   ngOnInit(): void {
+    this.game.init();
   }
 
   keyPress(key: string | undefined){
@@ -27,7 +29,7 @@ export class HomeComponent implements OnInit {
     }
     else if(key?.toLowerCase() === 'enter'){
       if(guessStarted){
-        console.log(this.game.submitGuess());
+        this.gameComplete = this.game.submitGuess();
       }
     }
     else if(this.game.isValidLetter(key!)){
@@ -35,5 +37,11 @@ export class HomeComponent implements OnInit {
     }
     this.currentGuess = this.game.guessedWord$.getValue();
 
+  }
+
+  reset() {
+    this.game.reset();
+    this.currentGuess = this.game.guessedWord$.getValue();
+    this.gameComplete = false;
   }
 }

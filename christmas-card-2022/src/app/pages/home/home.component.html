@@ -1,14 +1,17 @@
 <div class="game">
-<div class="guess-container">
-    <app-letter-row [guess]="currentGuess" [rowNumber]="0"></app-letter-row>
-    <app-letter-row [guess]="currentGuess" [rowNumber]="1"></app-letter-row>
-    <app-letter-row [guess]="currentGuess" [rowNumber]="2"></app-letter-row>
-    <app-letter-row [guess]="currentGuess" [rowNumber]="3"></app-letter-row>
-    <app-letter-row [guess]="currentGuess" [rowNumber]="4"></app-letter-row>
-    <app-letter-row [guess]="currentGuess" [rowNumber]="5"></app-letter-row>
+    <div class="guess-container">
+        <app-letter-row [guess]="currentGuess" [rowNumber]="0"></app-letter-row>
+        <app-letter-row [guess]="currentGuess" [rowNumber]="1"></app-letter-row>
+        <app-letter-row [guess]="currentGuess" [rowNumber]="2"></app-letter-row>
+        <app-letter-row [guess]="currentGuess" [rowNumber]="3"></app-letter-row>
+        <app-letter-row [guess]="currentGuess" [rowNumber]="4"></app-letter-row>
+        <app-letter-row [guess]="currentGuess" [rowNumber]="5"></app-letter-row>
+    </div>
 </div>
+<div *ngIf="gameComplete" class="buttons">
+    <button class="button reset" (click)="reset()">Reset</button>
+    <button class="button">Continue to Card</button>
 </div>
-
 <app-keyboard (keyPressed)="keyPress($event)"></app-keyboard>
 
 

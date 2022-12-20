@@ -1,6 +1,8 @@
 @import '../../../styles/colors';
+@import '../../../styles/fonts';
 
 :host {
+    --game-max-width: 500px;
     --bottom-offset: 210px;
     display: flex;
     height: calc(100% - var(--bottom-offset));
@@ -32,4 +34,44 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: .25rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: var(--game-max-width);
+}
+
+.button {
+    background: var(--color-game-correct);
+    border: 2px solid var(--color-game-correct);
+    border-radius: 4px;
+    color: var(--color-font-primary);
+    cursor: pointer;
+    flex: 1;
+    font-size: 1rem;
+    font-family: var(--font-family-sans-serif);
+    font-weight: 500;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.reset {
+    background: var(--color-game-exists);
+    border: 2px solid var(--color-game-exists);
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.reset::after {
+    background: url('../../../assets/icons8-rotate-50.png');
+    background-size: contain;
+    content: '';
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { answers } from 'src/assets/answers';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,13 @@ export class GameService {
   guessedWordList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   
   constructor() { }
+
+  init(){
+    const min = Math.ceil(0);
+    const max = Math.floor( answers.length);
+    const index = Math.floor(Math.random() * (max - min) + min);
+    this.#answer = answers.at(index)!;
+  }
 
   addLetterToWord(letter: string): void {
     const currentWord: string = this.guessedWord$.getValue();
@@ -62,4 +70,10 @@ export class GameService {
     return this.#answer;
   }
   
+  reset(): void {
+    this.guessedWordList$.next([]);
+    this.guessedWord$.next('');
+    this.currentRow$.next(0);
+    this.init();
+  }
 }

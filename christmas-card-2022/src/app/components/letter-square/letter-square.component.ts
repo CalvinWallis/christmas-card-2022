@@ -45,7 +45,10 @@ export class LetterSquareComponent implements OnInit {
           }
         }
       }
-      //TODO check against correct word and the letter return if its correct/exists/incorrect
+      else {
+        this.letterStatus = 'empty';
+        this.#guess = '';
+      }
     });
   }
 }
