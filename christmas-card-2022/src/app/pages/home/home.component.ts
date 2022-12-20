@@ -7,7 +7,7 @@ import { GameService } from 'src/app/services/game.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  guessNumber: number = 0;
+  guessRow: number = 0;
   currentGuess: string = "";
 
   constructor(
@@ -19,14 +19,19 @@ export class HomeComponent implements OnInit {
 
   keyPress(key: string | undefined){
     //TODO: Game logic here
-    if(this.game.isValidLetter(key!)){
-      this.game.addLetterToWord(key!);
-    }
-    else if (key?.toLowerCase() === 'backspace'){
-      this.game.removeLetterFromWord();
+    const guessStarted = this.game.guessedWord$.getValue().length > 0;
+    if (key?.toLowerCase() === 'backspace'){
+      if(guessStarted){
+        this.game.removeLetterFromWord();
+      }
     }
     else if(key?.toLowerCase() === 'enter'){
-      console.log(this.game.submitGuess());
+      if(guessStarted){
+        console.log(this.game.submitGuess());
+      }
+    }
+    else if(this.game.isValidLetter(key!)){
+      this.game.addLetterToWord(key!);
     }
     this.currentGuess = this.game.guessedWord$.getValue();
 
