@@ -9,6 +9,7 @@ import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { KeyboardKeyComponent } from './components/keyboard-key/keyboard-key.component';
 import { LetterRowComponent } from './components/letter-row/letter-row.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LetterRowComponent } from './components/letter-row/letter-row.component
     TopNavComponent,
     KeyboardComponent,
     KeyboardKeyComponent,
-    LetterRowComponent
+    LetterRowComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

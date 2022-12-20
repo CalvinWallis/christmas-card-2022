@@ -10,7 +10,7 @@
 </div>
 <div *ngIf="gameComplete" class="buttons">
     <button class="button reset" (click)="reset()">Reset</button>
-    <button class="button">Continue to Card</button>
+    <button class="button" (click)="continue()">Continue to Card</button>
 </div>
 <app-keyboard (keyPressed)="keyPress($event)"></app-keyboard>
 

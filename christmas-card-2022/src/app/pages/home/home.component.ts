@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GameService } from 'src/app/services/game.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit {
   gameComplete: boolean = false;
 
   constructor(
-    private game: GameService
+    private game: GameService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -43,5 +45,10 @@ export class HomeComponent implements OnInit {
     this.game.reset();
     this.currentGuess = this.game.guessedWord$.getValue();
     this.gameComplete = false;
+  }
+
+  continue() {
+    this.game.reset();
+    this.router.navigateByUrl('card');
   }
 }
