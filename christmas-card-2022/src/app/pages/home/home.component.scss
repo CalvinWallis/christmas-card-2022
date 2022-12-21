@@ -84,3 +84,15 @@
 .skip a {
     color: var(--color-border);
 }
+
+@media (max-width: 475px) {
+    .guess-container {
+        width: 300px;
+        height: 360px;
+    }
+
+    .skip {
+        padding: 1rem;
+        text-align: center;
+    }
+}

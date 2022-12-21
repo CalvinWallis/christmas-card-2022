@@ -12,6 +12,11 @@ export class GameService {
   currentRow$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   guessedWord$: BehaviorSubject<string> = new BehaviorSubject<string>("");
   guessedWordList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+
+  correctLetters$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  incorrectLetters$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  existsLetters$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+
   
   constructor() { }
 
@@ -62,8 +67,22 @@ export class GameService {
       const isLetter = (key >= 'a' && key <= 'z');
       return isLetter;
     }
-    return false;
-    
+    return false; 
+  }
+
+  addCorrectLetter(letter: string){
+    const correctLetters: string[] = this.correctLetters$.getValue();
+    this.correctLetters$.next([...correctLetters, letter]);
+  }
+
+  addIncorrectLetter(letter: string) {
+    const incorrectLetters: string[] = this.incorrectLetters$.getValue();
+    this.incorrectLetters$.next([...incorrectLetters, letter]);
+  }
+
+  addExistsLetter(letter: string) {
+    const existsLetters: string[] = this.existsLetters$.getValue();
+    this.existsLetters$.next([...existsLetters, letter]);
   }
 
   getAnswer(): string {
@@ -74,6 +93,9 @@ export class GameService {
     this.guessedWordList$.next([]);
     this.guessedWord$.next('');
     this.currentRow$.next(0);
+    this.correctLetters$.next([]);
+    this.incorrectLetters$.next([]);
+    this.existsLetters$.next([]);
     this.init();
   }
 }

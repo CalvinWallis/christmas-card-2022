@@ -43,3 +43,15 @@
 :host:hover {
   border: 1px solid var(--color-font-primary);
 }
+
+:host(.exists) {
+  background: var(--color-game-exists);
+}
+
+:host(.correct) {
+  background: var(--color-game-correct);
+}
+
+:host(.incorrect) {
+  background: var(--color-game-incorrect);
+}

@@ -29,19 +29,21 @@ export class LetterSquareComponent implements OnInit {
   ngOnInit(): void {
     this.#guessedWordList$.subscribe((wordList: string[]) => {
       if (wordList.length > 0) {
-        const currentRow = this.game.currentRow$.getValue()
+        const currentRow = this.game.currentRow$.getValue();
         const rowWord = wordList.at(currentRow);
+        const rowLetter = rowWord?.at(this.letterNumber);
         const answerLetter = this.game.getAnswer().at(this.letterNumber);
 
         if (currentRow === this.rowNumber) {
-          if (answerLetter === rowWord?.at(this.letterNumber)) {
+          if (answerLetter === rowLetter) {
             this.letterStatus = 'correct';
-          } else if (
-            this.game.getAnswer().includes(rowWord!.at(this.letterNumber)!)
-          ) {
+            this.game.addCorrectLetter(rowLetter!)
+          } else if (this.game.getAnswer().includes(rowLetter!)) {
             this.letterStatus = 'exists';
+            this.game.addExistsLetter(rowLetter!)
           } else {
             this.letterStatus = 'incorrect';
+            this.game.addIncorrectLetter(rowLetter!);
           }
         }
       }
