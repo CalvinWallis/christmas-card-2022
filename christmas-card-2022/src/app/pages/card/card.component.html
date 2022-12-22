@@ -1,1 +1,53 @@
-<p>card works!</p>
+<p class="title">From our family to yours, Merry&nbsp;Christmas and a Happy&nbsp;New&nbsp;Year!</p>
+
+
+<figure>
+  <svg class="card" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 800" preserveAspectRatio="xMinYMin meet">
+    <!--Image of our family Or images of each of us-->
+    <image width="600" height="800" xlink:href="../../../assets/ChristmasCardPoC1.2.jpg" />
+
+    <!--create regions-->
+    <!--Highlighting/Clicking a member shows their name-->
+    <g class="family-member" opacity="0" (click)="cardClick('blitz')">
+      <a>
+        <polygon points="1,313,192,310,152,247,234,141,280,163,314,161,306,141,239,107,218,110,177,150,158,156,146,135,126,129,148,104,151,64,135,52,134,33,141,29,130,5,35,8,1,10" style="fill:var(--color-border);stroke:var(--color-border);stroke-width:1;opacity:.6;"/>
+      </a>
+    </g>
+
+    <g class="family-member" opacity="0" (click)="cardClick('calvin')">
+      <a>
+        <polygon points="5,733,94,680,65,644,64,604,44,556,70,498,130,472,188,473,215,498,220,524,228,553,226,576,235,604,222,649,221,673,207,687,285,723,291,799,3,797" style="fill:var(--color-border);stroke:var(--color-border);stroke-width:1;opacity:.6;"/>
+      </a>
+    </g>
+
+    <g class="family-member" opacity="0" (click)="cardClick('obi')">
+      <a>
+        <polygon points="199,321,198,204,260,187,256,166,277,176,313,175,333,172,325,191,328,220,323,241,310,246,302,266,279,291,268,310,268,322,261,333,245,327,239,313,217,318" style="fill:var(--color-border);stroke:var(--color-border);stroke-width:1;opacity:.6;"/>
+      </a>
+    </g>
+
+    <g class="family-member" opacity="0" (click)="cardClick('chief')">
+      <a>
+        <polygon points="336,249,355,272,376,301,413,309,439,310,487,307,517,281,566,275,594,267,594,252,563,251,596,193,583,168,555,174,562,188,550,214,513,178,535,170,541,155,535,140,516,138,461,131,423,139,384,134,356,146,339,169,343,202,334,220" style="fill:var(--color-border);stroke:var(--color-border);stroke-width:1;opacity:.6;"/>
+      </a>
+    </g>
+
+    <g class="family-member" opacity="0" (click)="cardClick('maureen')">
+      <a>
+        <polygon points="345,665,353,602,365,519,419,487,487,490,525,508,549,571,567,676,546,691,497,664,503,629,456,643,401,628,402,669,367,696" style="fill:var(--color-border);stroke:var(--color-border);stroke-width:1;opacity:.6;"/>
+      </a>
+    </g>
+  </svg>
+  </figure>
+
+<p *ngIf="clickedFam === 'maureen'">Maureen</p>
+<p *ngIf="clickedFam === 'calvin'">Calvin</p>
+<p *ngIf="clickedFam === 'chief'">
+  Chief, the perfect boy, the prodigal son, the prince, handsome, stinky, a highly trained assassin of the heart, his titles and accolades never cease.
+</p>
+<p *ngIf="clickedFam === 'blitz'">
+  Blitz is our newest addition, saved from a Mizzou dorm hallway in summer of 2021, he is also known as "the puppy", "big", "grain of rice puppy", "uggy", "loud" and "a problem"
+</p>
+<p *ngIf="clickedFam === 'obi'">
+  Oberon aka Obi is our cat... we think. He might also be an alien or a bug or a worm. No one can be certain.
+</p>

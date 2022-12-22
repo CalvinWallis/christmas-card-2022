@@ -1,0 +1,47 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+@import '../../../styles/variables';
+
+:host {
+  color: var(--color-font-primary);
+  font-family: var(--font-family-serif);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;  
+  margin: 1rem auto;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.card {
+  height: 800px;
+}
+
+.family-member {
+  cursor: pointer;
+}
+
+.family-member:hover{
+  opacity: 1;
+  background-color: var(--color-border);
+}
+
+@media (max-width: #{$mobile-breakpoint}) {
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .card {
+    height: 500px;
+  }
+}
+
+@media (max-width: #{$small-mobile-breakpoint}) {
+  .card {
+    height: 400px;
+  }
+}

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  clickedFam: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  cardClick(target: string) {
+    this.clickedFam = target;
+  }
 }
