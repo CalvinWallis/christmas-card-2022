@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
     this.game.reset();
     this.currentGuess = this.game.guessedWord$.getValue();
     this.gameComplete = false;
+    this.gameOver = false;
   }
 
   continue() {
