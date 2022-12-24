@@ -25,11 +25,6 @@
   cursor: pointer;
 }
 
-.family-member:hover{
-  opacity: 1;
-  background-color: var(--color-border);
-}
-
 @media (max-width: #{$mobile-breakpoint}) {
   .title {
     font-size: 1.25rem;
