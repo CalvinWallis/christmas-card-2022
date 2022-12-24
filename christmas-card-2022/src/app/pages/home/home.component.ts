@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   guessRow: number = 0;
   currentGuess: string = "";
   gameComplete: boolean = false;
+  gameOver: boolean = false;
 
   constructor(
     private game: GameService,
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
     else if(key?.toLowerCase() === 'enter'){
       if(guessStarted){
         this.gameComplete = this.game.submitGuess();
+        this.gameOver = this.game.isGameOver();
       }
     }
     else if(this.game.isValidLetter(key!)){
@@ -38,6 +40,10 @@ export class HomeComponent implements OnInit {
     }
     this.currentGuess = this.game.guessedWord$.getValue();
 
+  }
+
+  getAnswer() {
+    return this.game.getAnswer();
   }
 
   reset() {

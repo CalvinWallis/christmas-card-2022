@@ -36,6 +36,15 @@
     gap: .25rem;
 }
 
+.gameover {
+    color: var(--color-font-primary);
+    font-family: var(--font-family-sans-serif);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+
 .buttons {
     display: flex;
     gap: 2rem;
@@ -94,5 +103,9 @@
     .skip {
         padding: 1rem;
         text-align: center;
+    }
+
+    .gameover {
+        font-size: 1.5rem;
     }
 }

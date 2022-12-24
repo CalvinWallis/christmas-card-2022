@@ -12,6 +12,9 @@
     <button class="button reset" (click)="reset()">Reset</button>
     <button class="button" (click)="continue()">Continue to Card</button>
 </div>
+<div class="gameover" *ngIf="gameOver">
+    The correct word was "{{getAnswer() | uppercase}}"
+</div>
 <app-keyboard (keyPressed)="keyPress($event)"></app-keyboard>
 <p class="skip">If you really just want to skip it <a routerLink="card">you can</a>... I guess :(</p>
 

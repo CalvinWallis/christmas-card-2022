@@ -7,6 +7,7 @@ import { answers } from 'src/assets/answers';
 })
 export class GameService {
   #wordLength: number = 5;
+  #maxGuesses: number = 6;
   #answer: string = 'chief';
 
   currentRow$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -59,6 +60,7 @@ export class GameService {
 
     this.guessedWord$.next('');
     this.currentRow$.next(currentRow + 1);
+
     return false;
   }
 
@@ -68,6 +70,14 @@ export class GameService {
       return isLetter;
     }
     return false; 
+  }
+
+  isGameOver(): boolean {
+    if(this.currentRow$.getValue() === this.#maxGuesses){
+      return true;
+    }
+
+    return false;
   }
 
   addCorrectLetter(letter: string){
