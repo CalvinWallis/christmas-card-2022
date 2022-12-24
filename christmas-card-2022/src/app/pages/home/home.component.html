@@ -8,13 +8,14 @@
         <app-letter-row [guess]="currentGuess" [rowNumber]="5"></app-letter-row>
     </div>
 </div>
-<div *ngIf="gameComplete" class="buttons">
-    <button class="button reset" (click)="reset()">Reset</button>
-    <button class="button" (click)="continue()">Continue to Card</button>
-</div>
 <div class="gameover" *ngIf="gameOver">
     The correct word was "{{getAnswer() | uppercase}}"
 </div>
+<div *ngIf="gameComplete || gameOver" class="buttons">
+    <button class="button reset" (click)="reset()">Reset</button>
+    <button class="button" (click)="continue()">Continue to Card</button>
+</div>
+
 <app-keyboard (keyPressed)="keyPress($event)"></app-keyboard>
 <p class="skip">If you really just want to skip it <a routerLink="card">you can</a>... I guess :(</p>
 
