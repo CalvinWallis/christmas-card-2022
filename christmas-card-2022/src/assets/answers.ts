@@ -3,7 +3,6 @@ export const answers: string[] = [
   'blitz',
   'stink',
   'merry',
-  'happy',
   'snowy',
   'gifts',
   'bells',
