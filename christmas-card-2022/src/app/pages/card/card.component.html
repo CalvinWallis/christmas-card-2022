@@ -38,16 +38,21 @@
       </a>
     </g>
   </svg>
-  </figure>
+</figure>
 
-<p *ngIf="clickedFam === 'maureen'">Maureen</p>
-<p *ngIf="clickedFam === 'calvin'">Calvin</p>
-<p *ngIf="clickedFam === 'chief'">
-  Chief, the perfect boy, the prodigal son, the prince, handsome, stinky, a highly trained assassin of the heart, his titles and accolades never cease.
-</p>
-<p *ngIf="clickedFam === 'blitz'">
-  Blitz is our newest addition, saved from a Mizzou dorm hallway in summer of 2021, he is also known as "the puppy", "big", "grain of rice puppy", "uggy", "loud" and "a problem"
-</p>
-<p *ngIf="clickedFam === 'obi'">
-  Oberon aka Obi is our cat... we think. He might also be an alien or a bug or a worm. No one can be certain.
-</p>
+<div class="family">
+  <p *ngIf="clickedFam === ''">Click around to learn names</p>
+  <p *ngIf="clickedFam === 'maureen'">Maureen</p>
+  <p *ngIf="clickedFam === 'calvin'">Calvin</p>
+  <p *ngIf="clickedFam === 'chief'">
+    Chief, the perfect boy, the prodigal son, the prince, handsome, stinky, a highly trained assassin of the heart, his titles and accolades never cease.
+  </p>
+  <p *ngIf="clickedFam === 'blitz'">
+    Blitz is our newest addition, saved from a Mizzou dorm hallway in summer of 2021, he is also known as "the puppy", "big", "grain of rice puppy", "uggy", "loud" and "a problem"
+  </p>
+  <p *ngIf="clickedFam === 'obi'">
+    Oberon aka Obi is our cat... we think. He might also be an alien or a bug or a worm. No one can be certain.
+  </p>
+</div>
+
+<a class="back" routerLink="/">	&#8592; Back to Game</a>
